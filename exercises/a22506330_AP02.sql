@@ -36,3 +36,12 @@ SELECT
 FROM 
     employees
 LIMIT 5;
+
+
+SELECT 
+    EMPLOYEE_ID, 
+    HIRE_DATE, 
+    HIRE_DATE + INTERVAL '6 months' AS review_date
+FROM 
+    employees
+LIMIT 5;
