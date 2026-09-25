@@ -1,8 +1,8 @@
 --Vadym Vitrenko, a22506330, 25/09/2026
 
-
 USE ULHT_DB26;
 GO
+
 --exercicio 1
 -- A1. Formal name
 SELECT 
@@ -11,13 +11,12 @@ SELECT
 FROM HR.EMPLOYEES;
 
 -- exercicio 2
-
 SELECT 
     EMPLOYEE_ID,
     CONCAT(LOWER(EMAIL), '@example.org') AS email_address
-    FROM HR.EMPLOYEES;
+FROM HR.EMPLOYEES;
 
-    --exercicio 3
+--exercicio 3
 -- A3. Name length
 SELECT 
     LAST_NAME,
@@ -27,21 +26,19 @@ ORDER BY
     last_name_length DESC, 
     LAST_NAME ASC;
 
-
-SELECT 
+--exercicio 4
+SELECT TOP 5
     EMPLOYEE_ID, 
     SALARY, 
     SALARY * 3 AS quarter_salary, 
     SALARY * 14 AS annual_salary
 FROM 
-    employees
-LIMIT 5;
+    HR.EMPLOYEES;
 
-
-SELECT 
-    EMPLOYEE_ID, 
-    HIRE_DATE, 
-    HIRE_DATE + INTERVAL '6 months' AS review_date
-FROM 
-    employees
-LIMIT 5;
+--exercicio 5
+SELECT TOP 5
+    EMPLOYEE_ID,
+    HIRE_DATE,
+    DATEADD(month, 6, HIRE_DATE) AS review_date
+FROM
+    HR.EMPLOYEES;
